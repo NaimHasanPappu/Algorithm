@@ -485,8 +485,12 @@ struct Int {
    
     friend Int pow(const Int &a,const Int &b){
         Int c = 1;
-        for(Int i=1; i<=b; i+=1){
-            c *= a;
+        while (b > 0) {
+            if (b[0] & 1) {
+                c *= a;
+            }
+            a *= a;
+            b /= 2;
         }
         return c;
     }
